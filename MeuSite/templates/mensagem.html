@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercado Livre</title>
+</head>
+<body>
+    <h1>{{ mensagem }}</h1>
+    <nav>
+        <header>
+            <ul>
+                {% if session["login"] == False %}
+                    <li><a href="{{ url_for('rotaRegistrar')}}">Criar Conta</a></li>
+                    <li><a href="{{ url_for('rotaLogin')}}">Login</a></li>
+                {% else %}
+                    <li><a href="{{url_for('home')}}">Home</a></li>
+                    <li><a href="{{url_for('rotaAdicionar')}}">Adicionar</a></li>
+                    <li><a href="{{url_for('logout')}}">Logout</a></li>
+                {% endif %}
+            </ul>
+        </header>
+    </nav>
+</body>
+</html>

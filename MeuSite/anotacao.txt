@@ -1,0 +1,25 @@
+Para criar o ambiente virtual, abra o terminal dentro da pasta criada e faça:
+
+python3 -m venv nome_do_ambiente_virtual
+
+Caso utilize o windows, para ativar o ambiente o comando se difere:
+
+nome_do_ambiente_virtual\Scripts\Activate
+
+pip freeze > requirements.txt
+
+Com o comando acima, será criado um arquivo com todas as bibliotecas presentes em nosso ambiente virtual. Por exemplo:
+
+flake8==3.7.9
+Flask==1.1.2
+Flask-API==2.0
+
+Agora, se quisermos rodar o nosso projeto em outra máquina, não será necessário baixar as dependências uma a uma, basta fazer:
+
+pip install -r requirements.txt  
+
+Com o comando acima, será instalado de forma automática todas as bibliotecas presentes no arquivo requirements.txt
+
+E por fim, para desativar o ambiente virtual:
+
+deactivate

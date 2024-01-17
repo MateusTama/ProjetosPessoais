@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Site</title>
+</head>
+<body>
+    <nav>
+        <header>
+            <ul>
+                {% if session["login"] == False %}
+                    <li><a href="{{ url_for('rotaRegistrar')}}">Criar Conta</a></li>
+                    <li><a href="{{ url_for('rotaLogin')}}">Login</a></li>
+                {% else %}
+                    <li><a href="{{url_for('rotaAdicionar')}}">Adicionar</a></li>
+                    <li><a href="{{url_for('logout')}}">Logout</a></li>
+                {% endif %}
+            </ul>
+        </header>
+    </nav>
+    {% if catalogo %}
+        <h1>Produtos</h1>
+        {% for produto in catalogo %}
+            <a href="{{ url_for('visualizar_produto', produto_id = produto[0])}}">
+                <div>
+                    <h2>{{ produto[1] }}</h2>
+                    <img src="{{ url_for('static', filename='images/upload/' + produto[4])}}" alt="imagem produto" class="images">
+                    <h3>Valor: {{ produto[3] }}</h3>
+                </div>
+            </a>
+        {% endfor %}
+    {% endif %}
+
+</body>
+</html>

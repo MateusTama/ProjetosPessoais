@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Conta</title>
+</head>
+<body>
+    <form action="{{ url_for('efetuarRegistrar')}}" method="POST">
+        <p>Nome:<input type="text" name="nome" id=""></p>
+        <p>Email:<input type="email" name="email"/></p>
+        <p>Senha:<input type="password" name="senha"/></p>
+        <input type="submit" value="Enviar"/>
+    </form>
+</body>
+</html>

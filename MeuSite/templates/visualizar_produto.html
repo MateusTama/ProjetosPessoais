@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ produto["titulo"] }}</title>
+</head>
+<body>
+    <nav>
+        <header>
+            <ul>
+                {% if session["login"] == False %}
+                    <li><a href="{{url_for('home')}}">Home</a></li>
+                    <li><a href="{{ url_for('rotaRegistrar')}}">Criar Conta</a></li>
+                    <li><a href="{{ url_for('rotaLogin')}}">Login</a></li>
+                {% else %}
+                    <li><a href="{{url_for('home')}}">Home</a></li>
+                    <li><a href="{{url_for('logout')}}">Logout</a></li>
+                {% endif %}
+            </ul>
+        </header>
+    </nav>
+
+    <main>
+        <div>
+            <h2>{{ produto["titulo"] }}</h2>
+            <p>Descrição: {{ produto["descricao"] }}</p>
+            <img src="{{ url_for('static', filename='images/upload/' + produto['imagem'])}}" alt="imagem produto" class="images">
+            <h3>Valor: {{ produto["valor"] }}</h3>
+            <p><a href="{{url_for('user_perfil', user_id = produto['id_usuario_produto'])}}">{{ nome_usuario }}</a></p>
+        </div>
+    </main>
+</body>
+</html>

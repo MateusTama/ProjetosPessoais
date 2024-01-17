@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar</title>
+</head>
+<body>
+    <form action="{{ url_for('efetuarAdicionar')}}" method="POST" enctype="multipart/form-data">
+        <p>Título<input type="text" name="titulo"></p>
+        <p>Descrição<textarea name="descricao" id="" cols="30" rows="10"></textarea></p>
+        <p>Valor<input type="number" name="valor" id=""></p>
+        <p>Imagem<input type="file" name="imagem" id=""></p>
+        <input type="submit" value="Enviar"/>
+    </form>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ usuario_nome }}</title>
+</head>
+<body>
+    <nav>
+        <header>
+            <ul>
+                {% if session["login"] == False %}
+                    <li><a href="{{url_for('home')}}">Home</a></li>
+                    <li><a href="{{ url_for('rotaRegistrar')}}">Criar Conta</a></li>
+                    <li><a href="{{ url_for('rotaLogin')}}">Login</a></li>
+                {% else %}
+                    <li><a href="{{url_for('home')}}">Home</a></li>
+                    <li><a href="{{url_for('logout')}}">Logout</a></li>
+                {% endif %}
+            </ul>
+        </header>
+    </nav>
+
+    <!-- Atualizar variáveis, fazer a rota e arrumar no visualizar_produto -->
+
+    <main>
+        <p>Nome: {{ usuario_nome }}</p>
+        <p>Email: {{ usuario_email }}</p>
+        <h1>Produtos:</h1>
+        {% if produtos_usuario %}
+            {% for produto in produtos_usuario %}
+                <a href="{{ url_for('visualizar_produto', produto_id = produto[0])}}">
+                    <div>
+                        <h2>{{ produto[1] }}</h2>
+                        <p>Descrição: {{ produto[2] }}</p>
+                        <img src="{{ url_for('static', filename='images/upload/' + produto[4])}}" alt="imagem produto" class="images">
+                        <h3>Valor: {{ produto[3] }}</h3>
+                    </div>
+                </a>
+            {% endfor %}
+        {% else %}
+            <p>Esse usuário não possui produtos cadastrados.</p>
+        {% endif %}
+    </main>
+</body>
+</html>
