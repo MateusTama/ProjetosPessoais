@@ -4,14 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adicionar</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
 </head>
 <body>
-    <form action="{{ url_for('efetuarAdicionar')}}" method="POST" enctype="multipart/form-data">
-        <p>Título<input type="text" name="titulo"></p>
-        <p>Descrição<textarea name="descricao" id="" cols="30" rows="10"></textarea></p>
-        <p>Valor<input type="number" name="valor" id=""></p>
-        <p>Imagem<input type="file" name="imagem" id=""></p>
-        <input type="submit" value="Enviar"/>
-    </form>
+    <header class="no-nav">
+        <a href="{{ url_for('home')}}"><img src="../static/images/logo.png" alt="Logo"></a>
+    </header>
+    <main>
+        <h1>Adicionar Produto</h1>
+        <form action="{{ url_for('efetuarAdicionar')}}" method="POST" enctype="multipart/form-data">
+            <input type="text" name="titulo" placeholder="Título">
+            <textarea name="descricao" rows="3" cols="25" placeholder="Descrição..."></textarea>
+            <input type="number" name="valor" placeholder="Valor">
+            <p class="form-add-p">Imagem:</p>
+            <input type="file" name="imagem">
+            <input type="submit" value="Enviar"/>
+        </form>
+    </main>
+    <footer>
+        <p>Desenvolvido por <a href="https://github.com/MateusTama" target="_blank">Mateus Tamasia</a></p>
+    </footer>
 </body>
 </html>
