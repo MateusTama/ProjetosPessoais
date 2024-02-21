@@ -7,31 +7,34 @@
     <title>Meu Site</title>
 </head>
 <body>
+    <header>
+        <a href="{{ url_for('home')}}"><img src="../static/images/logo.png" alt="Logo"></a>
+    </header>
     <nav>
-        <header>
-            <ul>
-                {% if session["login"] == False %}
-                    <li><a href="{{ url_for('rotaRegistrar')}}">Criar Conta</a></li>
-                    <li><a href="{{ url_for('rotaLogin')}}">Login</a></li>
-                {% else %}
-                    <li><a href="{{url_for('rotaAdicionar')}}">Adicionar</a></li>
-                    <li><a href="{{url_for('logout')}}">Logout</a></li>
-                {% endif %}
-            </ul>
-        </header>
+        <ul>
+            {% if session["login"] == False %}
+                <li><a href="{{ url_for('rotaRegistrar')}}">Criar Conta</a></li>
+                <li><a href="{{ url_for('rotaLogin')}}">Login</a></li>
+            {% else %}
+                <li><a href="{{url_for('rotaAdicionar')}}">Adicionar</a></li>
+                <li><a href="{{url_for('logout')}}">Logout</a></li>
+            {% endif %}
+        </ul>
     </nav>
-    {% if catalogo %}
-        <h1>Produtos</h1>
-        {% for produto in catalogo %}
-            <a href="{{ url_for('visualizar_produto', produto_id = produto[0])}}">
-                <div>
+    <main>
+        {% if catalogo %}
+            <h1>Ofertas da semana</h1>
+            {% for produto in catalogo %}
+                <article>
                     <h2>{{ produto[1] }}</h2>
-                    <img src="{{ url_for('static', filename='images/upload/' + produto[4])}}" alt="imagem produto" class="images">
+                    <a href="{{ url_for('visualizar_produto', produto_id = produto[0])}}"><img src="{{ url_for('static', filename='images/upload/' + produto[4])}}" alt="imagem produto" class="images"></a>
                     <h3>Valor: {{ produto[3] }}</h3>
-                </div>
-            </a>
-        {% endfor %}
-    {% endif %}
-
+                </article>
+            {% endfor %}
+        {% endif %}
+    </main>
+    <footer>
+        <p>Desenvolvido por <a href="https://github.com/MateusTama" target="_blank">Mateus Tamasia</a></p>
+    </footer>
 </body>
 </html>
