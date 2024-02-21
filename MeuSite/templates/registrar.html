@@ -4,13 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Criar Conta</title>
+    <link rel="stylesheet" href="../static/css/style.css">
 </head>
 <body>
-    <form action="{{ url_for('efetuarRegistrar')}}" method="POST">
-        <p>Nome:<input type="text" name="nome" id=""></p>
-        <p>Email:<input type="email" name="email"/></p>
-        <p>Senha:<input type="password" name="senha"/></p>
-        <input type="submit" value="Enviar"/>
-    </form>
+    <header class="no-nav">
+        <a href="{{ url_for('home')}}"><img src="../static/images/logo.png" alt="Logo"></a>
+    </header>
+    <main class="form-reg">
+        <h1>Registro</h1>
+        <form action="{{ url_for('efetuarRegistrar')}}" method="POST">
+            <input type="text" name="nome" placeholder="Nome"/>
+            <input type="email" name="email" placeholder="Email"/>
+            <input type="password" name="senha" placeholder="Senha"/>
+            <input type="submit" value="Enviar" class="btn-enviar"/>
+        </form>
+    </main>
+    <footer>
+        <p>Desenvolvido por <a href="https://github.com/MateusTama" target="_blank">Mateus Tamasia</a></p>
+    </footer>
 </body>
 </html>
