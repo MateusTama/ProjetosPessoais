@@ -1,4 +1,149 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap');
+
+@font-face {
+    font-family: "Title";
+    src: url(../fonts/new_comic_title/newcomictitle.ttf) format("truetype");
+    font-weight: normal;
+}
+
+:root {
+    --cor01: #1281FF;
+    --cor02: #327ED5;
+    --cor03: #4574AA;
+    --cor04: #47617f53;
+    --cor05: #3F4955;
+    --cor06: #2E3033;
+
+    --font_teste: 'Roboto', sans-serif;
+    --font_serif: 'PT Serif', serif;
+    --font_title: 'Title', sans-serif;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    background-color: var(--cor05);
+}
+
+header {
+    padding: 20px 20px 10px 20px;
+    background-color: var(--cor02);
+    text-align: center;
+}
+
+header.no-nav {
+    padding: 20px;
+}
+
+nav {
+    padding: 0px 10px 20px 10px;
+    background-color: var(--cor02);
+    text-align: right;
+}
+
+nav > ul {
+    list-style: none;
+}
+
+nav > ul > li {
+    display: inline;
+    padding-right: 20px;
+}
+
+nav > ul > li > a {
+    text-decoration: none;
+    color: white;
+    font-family: var(--font_serif);
+    font-weight: bold;
+}
+
+nav > ul > li > a:hover {
+    transition: 0.2s;
+    background-color: var(--cor04);
+    border-radius: 5px;
+    padding: 6px 6px 6px 6px;
+}
+
+main {
+    padding: 35px 10px 30px 10px;
+    margin: 0px 10% 0px 10%;
+    max-width: 1200px;
+    text-align: center;
+}
+
+main > h1 {
+    font-family: var(--font_title);
+    font-weight: normal;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+main > article {
+    padding: 10px;
+    display: inline-block;
+    background-color: white;
+    border-radius: 10px;
+}
+
+main > article > h2 {
+    margin-bottom: 10px;
+    font-family: var(--font_title);
+    font-weight: normal;
+    text-align: center;
+}
+
+main > article > h3 {
+    font-family: var(--font_serif);
+    text-align: center;
+}
+
+main > form > p {
+    font-family: var(--font_teste);
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+main > form > input {
+    margin: auto;
+    display: block;
+    padding: 5px;
+    margin-bottom: 2.5px;
+    border-radius: 10px;
+    border-color: transparent;
+}
+
+main > form > input.btn-enviar {
+    margin-top: 10px;
+}
+
+footer {
+    background-color: var(--cor06);
+    padding: 10px;
+    text-align: center;
+}
+
+footer > p {
+    font-family: var(--font_teste);
+    font-size: 1.05em;
+}
+
+footer > p > a {
+    text-decoration: none;
+    color: black;
+}
+
+footer > p > a:hover {
+    text-decoration: underline;
+    color: rgb(228, 166, 166);
+}
+
 .images{
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
 }
