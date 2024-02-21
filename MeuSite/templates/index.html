@@ -28,7 +28,7 @@
                 <article>
                     <h2>{{ produto[1] }}</h2>
                     <a href="{{ url_for('visualizar_produto', produto_id = produto[0])}}"><img src="{{ url_for('static', filename='images/upload/' + produto[4])}}" alt="imagem produto" class="images"></a>
-                    <h3>Valor: {{ produto[3] }}</h3>
+                    <h3>Valor: R${{ produto[3] }}</h3>
                 </article>
             {% endfor %}
         {% endif %}
