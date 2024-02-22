@@ -14,7 +14,7 @@
         <h1>Adicionar Produto</h1>
         <form action="{{ url_for('efetuarAdicionar')}}" method="POST" enctype="multipart/form-data">
             <input type="text" name="titulo" placeholder="Título">
-            <textarea name="descricao" rows="3" cols="25" placeholder="Descrição..."></textarea>
+            <textarea name="descricao" rows="3" cols="25" placeholder="Descrição..." maxlength="100"></textarea>
             <input type="number" name="valor" placeholder="Valor">
             <p class="form-add-p">Imagem:</p>
             <input type="file" name="imagem">

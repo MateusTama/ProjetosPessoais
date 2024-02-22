@@ -4,22 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mercado Livre</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
 </head>
 <body>
-    <h1>{{ mensagem }}</h1>
-    <nav>
-        <header>
-            <ul>
-                {% if session["login"] == False %}
-                    <li><a href="{{ url_for('rotaRegistrar')}}">Criar Conta</a></li>
-                    <li><a href="{{ url_for('rotaLogin')}}">Login</a></li>
-                {% else %}
-                    <li><a href="{{url_for('home')}}">Home</a></li>
-                    <li><a href="{{url_for('rotaAdicionar')}}">Adicionar</a></li>
-                    <li><a href="{{url_for('logout')}}">Logout</a></li>
-                {% endif %}
-            </ul>
-        </header>
-    </nav>
+    <header class="no-nav">
+        <a href="{{ url_for('home')}}"><img src="../static/images/logo.png" alt="Logo"></a>
+    </header>
+    <main>
+        <h1 class="afastamento">{{ mensagem }}</h1>
+    </main>
+    <footer>
+        <p>Desenvolvido por <a href="https://github.com/MateusTama" target="_blank">Mateus Tamasia</a></p>
+    </footer>
 </body>
 </html>

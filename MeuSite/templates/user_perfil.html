@@ -7,41 +7,30 @@
     <title>{{ usuario_nome }}</title>
 </head>
 <body>
-    <nav>
-        <header>
-            <ul>
-                {% if session["login"] == False %}
-                    <li><a href="{{url_for('home')}}">Home</a></li>
-                    <li><a href="{{ url_for('rotaRegistrar')}}">Criar Conta</a></li>
-                    <li><a href="{{ url_for('rotaLogin')}}">Login</a></li>
-                {% else %}
-                    <li><a href="{{url_for('home')}}">Home</a></li>
-                    <li><a href="{{url_for('logout')}}">Logout</a></li>
-                {% endif %}
-            </ul>
-        </header>
-    </nav>
-
+    <header class="no-nav">
+        <a href="{{ url_for('home')}}"><img src="../static/images/logo.png" alt="Logo"></a>
+    </header>
     <!-- Atualizar variáveis, fazer a rota e arrumar no visualizar_produto -->
-
     <main>
+        <h1>Usuário</h1>
         <p>Nome: {{ usuario_nome }}</p>
         <p>Email: {{ usuario_email }}</p>
-        <h1>Produtos:</h1>
+        <h1 class="afastamento">Produtos:</h1>
         {% if produtos_usuario %}
             {% for produto in produtos_usuario %}
-                <a href="{{ url_for('visualizar_produto', produto_id = produto[0])}}">
-                    <div>
-                        <h2>{{ produto[1] }}</h2>
-                        <p>Descrição: {{ produto[2] }}</p>
+                <article>
+                    <h2>{{ produto[1] }}</h2>
+                    <a href="{{ url_for('visualizar_produto', produto_id = produto[0])}}">
                         <img src="{{ url_for('static', filename='images/upload/' + produto[4])}}" alt="imagem produto" class="images">
-                        <h3>Valor: {{ produto[3] }}</h3>
-                    </div>
-                </a>
+                    </a>
+                </article>
             {% endfor %}
         {% else %}
             <p>Esse usuário não possui produtos cadastrados.</p>
         {% endif %}
     </main>
+    <footer>
+        <p>Desenvolvido por <a href="https://github.com/MateusTama" target="_blank">Mateus Tamasia</a></p>
+    </footer>
 </body>
 </html>
