@@ -61,13 +61,13 @@ nav > ul > li > a {
     color: white;
     font-family: var(--font_serif);
     font-weight: bold;
+    padding: 6px 6px 6px 6px;
 }
 
 nav > ul > li > a:hover {
-    transition: 0.2s;
+    transition: 0.4s;
     background-color: var(--cor04);
     border-radius: 5px;
-    padding: 6px 6px 6px 6px;
 }
 
 main {
@@ -122,6 +122,26 @@ main > form > input.btn-enviar {
     margin-top: 10px;
 }
 
+main > article > p {
+    font-family: var(--font_serif);
+}
+
+main > article > p > a {
+    text-decoration: none;
+    color: black;
+    font-weight: bolder;
+}
+
+main > article > p > a:hover {
+    color: var(--cor03);
+    text-decoration: underline;
+}
+
+main > form > p.form-add-p {
+    margin: 0px;
+}
+
+
 footer {
     background-color: var(--cor06);
     padding: 10px;
@@ -140,7 +160,7 @@ footer > p > a {
 
 footer > p > a:hover {
     text-decoration: underline;
-    color: rgb(228, 166, 166);
+    color: var(--cor03);
 }
 
 .images{
